@@ -7,6 +7,7 @@
             [server.handler :refer [scrambleHandler]]
             ))
 (defroutes app
+  (GET "/" [] "nothing is here yet.")
   (GET "/scramble/:str1/:str2" [] scrambleHandler)
   (not-found (notFoundComponent)))
 
