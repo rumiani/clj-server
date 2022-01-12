@@ -12,5 +12,5 @@
   :uberjar-name "server.jar"
   :repl-options {:init-ns server.core}
   :main server.core
-  :profiles {:dev
-            {:main server.core/-dev-main}})
+  :profiles {:uberjar {:aot :all}}
+)
