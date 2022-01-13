@@ -3,13 +3,16 @@
             [ring.middleware.reload :refer [wrap-reload]]
             [compojure.core :refer [defroutes GET]]
             [compojure.route :refer [not-found]]
-            [server.view :refer [notFoundComponent]]
-            [server.handler :refer [scrambleHandler]]
+            [ring.handler.dump :refer [handle-dump]]
+            [server.handler :refer [ main-page-handler scramble-handler] ]
+            [server.view :refer [ not-found-component] ]
             ))
+
 (defroutes app
-  (GET "/" [] "nothing is here yet.")
-  (GET "/scramble/:str1/:str2" [] scrambleHandler)
-  (not-found (notFoundComponent)))
+  (GET "/request" [] handle-dump)
+  (GET "/" [] main-page-handler)
+  (GET "/scramble/:str1/:str2" [] scramble-handler)
+  (not-found (not-found-component)))
 
 (defn -main [port]
   (jetty/run-jetty app
