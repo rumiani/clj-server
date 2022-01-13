@@ -1,2 +1,1 @@
-web: java $JVM_OPTS -cp target/server-standalone.jar clojure.main -m server.core 3001
-
+web: echo $PORT; java $JVM_OPTS -cp target/server-standalone.jar clojure.main -m server.core $PORT
