@@ -16,11 +16,17 @@
 
 ;; (defn -main [port]
 ;;   (jetty/run-jetty app                 {:port (Integer. port)}))
-(defn -main [port]
-  (println "####THE VALUE OF ENV VAR PORT IS" (System/getenv "PORT"))
-  (flush)    ; Force that output to be written to the Heroku log, before we move on to (trying to) start Jetty
-  (jetty/run-jetty app                 {:port (Integer. port)}))
+;; (defn -main [port]
+;;   (println "####THE VALUE OF ENV VAR PORT IS" (System/getenv "PORT"))
+;;   (flush)    ; Force that output to be written to the Heroku log, before we move on to (trying to) start Jetty
+;;   (jetty/run-jetty app                 {:port (Integer. port)}))
 
+(defn -main [& args]
+  (println "####THE VALUE OF ENV VAR PORT IS" (System/getenv "PORT"))
+  (flush)
+
+
+)
 
 
 
