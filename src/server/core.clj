@@ -18,26 +18,16 @@
 
 ;; (defn -main [port]
 ;;   (jetty/run-jetty app                 {:port (Integer. port)}))
-;; (defn -main [port]
-;;   (println "####THE VALUE OF ENV VAR PORT IS" (System/getenv "PORT"))
-;;   (flush)    ; Force that output to be written to the Heroku log, before we move on to (trying to) start Jetty
-;;   (jetty/run-jetty app                 {:port (Integer. port)}))
-
-;; (defn -main [& args]
-;;   (println "####THE VALUE OF ENV VAR PORT IS" (System/getenv "PORT"))
-;;   (flush)
-;; )
-;; (defn -main [& args]
-;;   (println "####THE VALUE OF ENV VAR PORT IS" (System/getenv "PORT"))
-;;   (flush)    ; Force that output to be written to the Heroku log, before we move on to (trying to) start Jetty
-;;   (let [port (first args)]
-;;     (jetty/run-jetty app {:port (Integer. port)})))
 
 (defn -main [& args]
-  (let [port (s/trim (first args))]    ; Note: you may need to add a require on [clojure.string :as s] to your ns declaration for this to work
+  (println "####TEST!!!! args has" (count args) "elements, and is" args)
+  (flush)
+  (let [port (Integer/parseInt (s/trim (first args)))]
     (println "Starting HTTP server on port" port)
-    (flush)    ; Force that output to be written to the Heroku log, before we move on to (trying to) start Jetty
-    (jetty/run-jetty app {:port (Integer/parseInt port)})))
+    (flush)
+    (jetty/run-jetty app {:port port})))
+
+
 
 
 
