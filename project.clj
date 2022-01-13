@@ -12,5 +12,5 @@
   :uberjar-name "server-standalone.jar"
   :repl-options {:init-ns server.core}
   :main server.core
-  :profiles {:production {:env {:production true}}}
+  :profiles {:dev {:main server.core/-dev-main}}
   )
