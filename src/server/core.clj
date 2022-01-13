@@ -14,7 +14,11 @@
   (GET "/scramble/:str1/:str2" [] scramble-handler)
   (not-found (not-found-component)))
 
-(defn -main []
-  (jetty/run-jetty app                 {:port 3000}))
-(defn -dev-main []
-  (jetty/run-jetty (wrap-reload #'app) {:port 3000}))
+;; (defn -main []
+;;   (jetty/run-jetty app                 {:port 3000}))
+;; (defn -dev-main []
+;;   (jetty/run-jetty (wrap-reload #'app) {:port 3000}))
+
+  (defn -main [& [port]]
+  (let [port (Integer. (or port 5000))]
+    (jetty/run-jetty #'app {:port port :join? false})))
