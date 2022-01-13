@@ -6,7 +6,8 @@
             [ring.handler.dump :refer [handle-dump]]
             [server.handler :refer [ scramble-handler main-page-handler ] ]
             [server.view :refer [ not-found-component] ]
-            ))
+            )
+  (:gen-class))
 
 (defroutes app
   (GET "/request" [] handle-dump)
@@ -21,13 +22,15 @@
 ;;   (flush)    ; Force that output to be written to the Heroku log, before we move on to (trying to) start Jetty
 ;;   (jetty/run-jetty app                 {:port (Integer. port)}))
 
+;; (defn -main [& args]
+;;   (println "####THE VALUE OF ENV VAR PORT IS" (System/getenv "PORT"))
+;;   (flush)
+;; )
 (defn -main [& args]
   (println "####THE VALUE OF ENV VAR PORT IS" (System/getenv "PORT"))
-  (flush)
-
-
-)
-
+  (flush)    ; Force that output to be written to the Heroku log, before we move on to (trying to) start Jetty
+  (let [port (first args)]
+    (jetty/run-jetty app {:port (Integer. port)})))
 
 
 
