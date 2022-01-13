@@ -14,7 +14,7 @@
      :header {}}))
 
 
-(defn main-page-handler []
+(defn main-page-handler [req]
   {:status 200
    :body   (main-page-component)
    :header {}}
