@@ -4,7 +4,7 @@
             [compojure.core :refer [defroutes GET]]
             [compojure.route :refer [not-found]]
             [ring.handler.dump :refer [handle-dump]]
-            [server.handler :refer [ main-page-handler scramble-handler] ]
+            [server.handler :refer [ scramble-handler main-page-handler ] ]
             [server.view :refer [ not-found-component] ]
             ))
 
