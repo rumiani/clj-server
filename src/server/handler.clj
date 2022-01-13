@@ -13,8 +13,7 @@
      :body   (json/write-str (scramble? str1 str2))
      :header {}}))
 
-
-(defn main-page-handler [req]
+(defn main-page-handler []
   {:status 200
    :body   (main-page-component)
    :header {}}
