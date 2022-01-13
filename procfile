@@ -1,1 +1,1 @@
-web: java $JVM_OPTS -jar target/server-standalone.jar $PORT
+web: java -XX:+UseContainerSupport -jar target/server-standalone.jar $PORT
