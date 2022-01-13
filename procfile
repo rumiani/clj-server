@@ -1,1 +1,1 @@
-web: echo “THE PORT IS $PORT”; java $JVM_OPTS -cp target/server-standalone.jar clojure.main -m server.core $PORT
+web: java $JVM_OPTS -cp target/server-standalone.jar clojure.main -m server.core $PORT
