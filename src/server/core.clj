@@ -15,6 +15,6 @@
   (not-found (not-found-component)))
 
 (defn -main []
-  (jetty/run-jetty app                 {:port (Integer. 8000)}))
+  (jetty/run-jetty app                 {:port 3000}))
 (defn -dev-main []
-  (jetty/run-jetty (wrap-reload #'app) {:port (Integer. 8000)}))
+  (jetty/run-jetty (wrap-reload #'app) {:port 3000}))
