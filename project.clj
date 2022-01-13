@@ -13,4 +13,4 @@
   :repl-options {:init-ns server.core}
   :main server.core
   :profiles {:uberjar {:aot :all}}
-)
+  )
